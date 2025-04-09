@@ -1,12 +1,12 @@
-const removeFromArray = function(arr, val1, val2) {
-    if (val1 !== null) {
-        let val_index = arr.indexOf(val1);
-        arr.splice(val_index, 1);
-    }
-
-    if (val2 !== null) {
-        let val_index = arr.indexOf(val2);
-        arr.splice(val_index, 1);
+const removeFromArray = function(arr, ...vals) {
+    for (let val of vals) {
+        if (val !== undefined) {
+            let val_index = arr.indexOf(val);
+            while (val_index !== -1 ) {
+                arr.splice(val_index, 1);
+                val_index = arr.indexOf(val);
+            }
+        }
     }
     
     return arr;
